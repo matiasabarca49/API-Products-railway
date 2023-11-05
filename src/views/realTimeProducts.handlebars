@@ -1,0 +1,52 @@
+<div>
+    <a class="btn" href="/"><img style="width: 30px;" src="../../img/configurar.png" alt="home"></a>
+</div>
+<main class="container">
+    <h1>Productos con WebSocket</h1>
+    <div class="my-4 px-5">
+        <h3 class="mb-4">Crear Productos:</h3>
+        <form class="row px-5" id="formProduct" onsubmit="return addProduct()">
+            <div class="mb-1 col-xs-6 col-md-4">
+                <label for="title" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="title">
+            </div>
+            <div class="mb-3 col-xs-6  col-md-4" >
+                <label for="description" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="description">
+            </div>
+            <div class="mb-3 col-xs-6 col-md-4">
+                <label for="price" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="price">
+            </div>
+            <div class="mb-3 col-xs-6 col-md-4">
+                <label for="thumbnail" class="form-label">URL imagen</label>
+                <input type="text" class="form-control" id="thumbnail">
+            </div>
+            <div class="mb-3 col-xs-6  col-md-4">
+                <label for="code" class="form-label">Code</label>
+                <input type="text" class="form-control" id="code">
+            </div>
+            <div class="mb-3 col-xs-6  col-md-4">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="text" class="form-control" id="stock">
+            </div>
+            <div class="mb-3 col-xs-6  col-md-4">
+                <label for="category" class="form-label">Categoría</label>
+                <input type="text" class="form-control" id="category">
+            </div>
+            <div class="mb-3 col-xs-6  col-md-4">
+                <label for="category" class="form-label">Propietario</label>
+                <input type="text" class="form-control" id="owner" placeholder='Coloque "Admin" o su email'>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+    <div class="px-5">
+        <h3>Productos:</h3>
+        <div class="row gap-4 p-4 ms-4" id="products">
+
+        </div>
+    </div>
+</main>
+<script src="./socket.io/socket.io.js"></script>
+<script src="./js/realtime.js"></script>
