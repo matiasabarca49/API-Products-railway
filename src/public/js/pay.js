@@ -56,7 +56,7 @@ const render = (cart)=>{
 }
 
 const deleteProduct = async (idProduct) =>{
-    const res =  await fetch(`http://localhost:8080/api/users/delete/product/${idProduct}`, {
+    const res =  await fetch(`https://back-endapi-products-production.up.railway.app/api/users/delete/product/${idProduct}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const reWritedForDB = (cart) =>{
 
 //Funcion que se ejecuta al hacer click al boton pagar
 const finishPurchase = async ()=>{
-    const resUser = await fetch(`http://localhost:8080/api/sessions/current`)
+    const resUser = await fetch(`https://back-endapi-products-production.up.railway.app/api/sessions/current`)
     const user = await resUser.json()
     const dateAtMomentPurchase = new Date()
     const finalCart = {
@@ -87,7 +87,7 @@ const finishPurchase = async ()=>{
         products: user.currentUser.cart
     }
     //Agregamos el carrito a la DB
-    const res = await fetch('http://localhost:8080/api/carts',{
+    const res = await fetch('https://back-endapi-products-production.up.railway.app/api/carts',{
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -96,11 +96,11 @@ const finishPurchase = async ()=>{
     })
     const newCartAdded = await res.json()
     //Generamos la compra en el usuario
-    const resPurchase = await fetch(`http://localhost:8080/api/carts/${newCartAdded.cart._id}/purchase`)
+    const resPurchase = await fetch(`https://back-endapi-products-production.up.railway.app/api/carts/${newCartAdded.cart._id}/purchase`)
     const purchase = await resPurchase.json()
     //Enviamos el Ticket al mail del usuario
     purchase.ticket.email = user.currentUser.email
-    const resTicket = await fetch('http://localhost:8080/api/mail/send/mail',{
+    const resTicket = await fetch('https://back-endapi-products-production.up.railway.app/api/mail/send/mail',{
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -109,12 +109,12 @@ const finishPurchase = async ()=>{
     })
     localStorage.setItem("purchased", true)
     setTimeout(()=>{
-        window.location.href= `http://localhost:8080/products/ticket?code=${purchase.ticket.code}&&cart=${newCartAdded.cart._id}`
+        window.location.href= `https://back-endapi-products-production.up.railway.app/products/ticket?code=${purchase.ticket.code}&&cart=${newCartAdded.cart._id}`
     },5000)
 }
 
 const getCart = ()=>{
-    fetch('http://localhost:8080/api/sessions/current')
+    fetch('https://back-endapi-products-production.up.railway.app/api/sessions/current')
     .then( res => res.json())
     .then( data => {
         user = data.currentUser

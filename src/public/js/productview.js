@@ -27,7 +27,7 @@ const params = new URLSearchParams(url)
 //Mediante el metodo "get" obtenemos el id para utilizarlo en el fetch
 const id = params.get("id")
 
-fetch(`http://localhost:8080/api/products/${id}`)
+fetch(`https://back-endapi-products-production.up.railway.app/api/products/${id}`)
     .then( response => response.json())
     .then( data =>{
         //Una vez obtenido el producto, renderizamos

@@ -1,7 +1,7 @@
 const addToCart = async (product)=>{
     let user;
     try{
-        const resUser = await fetch(`http://localhost:8080/api/sessions/current`)
+        const resUser = await fetch(`https://back-endapi-products-production.up.railway.app/api/sessions/current`)
         user = await resUser.json()
         //Los usuarios no pueden agregar sus propios productos
         if(user.currentUser.email === product.owner || user.currentUser.rol === "Admin"){
@@ -18,7 +18,7 @@ const addToCart = async (product)=>{
                 modal.style.display = "none"
             },7000)
         }else{
-            const resToProductSended = await fetch(`http://localhost:8080/api/users/addcart`,{
+            const resToProductSended = await fetch(`https://back-endapi-products-production.up.railway.app/api/users/addcart`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const addToCart = async (product)=>{
     }
     catch(error){
         if(!user){
-            window.location.href = "http://localhost:8080/api/sessions/login"
+            window.location.href = "https://back-endapi-products-production.up.railway.app/api/sessions/login"
         }
         else{
             console.log("Error al Agregar el producto al carrito")
@@ -43,7 +43,7 @@ const addToCart = async (product)=>{
 const totalProducts = async ()=>{
     let cant
     try{
-        const resUser = await fetch(`http://localhost:8080/api/sessions/current`)
+        const resUser = await fetch(`https://back-endapi-products-production.up.railway.app/api/sessions/current`)
         const user = await resUser.json()
         cant = user.currentUser.cart.reduce((acumlador, product) => acumlador + product.quantity, 0)
     }

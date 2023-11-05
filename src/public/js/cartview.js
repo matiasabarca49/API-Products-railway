@@ -42,7 +42,7 @@ const url = window.location.href
 const id = url.split("/")[4]
 
 //Una vez extraido el ID realizamos el fetch
-fetch(`http://localhost:8080/api/carts/${id}`)
+fetch(`https://back-endapi-products-production.up.railway.app/api/carts/${id}`)
     .then(response => response.json())
     .then( data =>{
         renderProducts(data.cart.products)

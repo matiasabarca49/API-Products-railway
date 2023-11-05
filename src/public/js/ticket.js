@@ -52,7 +52,7 @@ const params = new URLSearchParams(url)
 //Mediante el metodo "get" obtenemos el id para utilizarlo en el fetch
 const code = params.get("code")
 const cart = params.get("cart")
-fetch(`http://localhost:8080/api/ticket?code=${code}&&cart=${cart}`)
+fetch(`https://back-endapi-products-production.up.railway.app/api/ticket?code=${code}&&cart=${cart}`)
     .then( res => res.json())
     .then( data => {
         renderProducts(data.ticket, data.cart, data.user)

@@ -57,7 +57,7 @@ const renderUsers = (users)=>{
 }
 
 const deleteProduct = (id) =>{
-    fetch(`http://localhost:8080/api/users/${id}`,{
+    fetch(`https://back-endapi-products-production.up.railway.app/api/users/${id}`,{
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const deleteProduct = (id) =>{
 } 
 
 const changeRolUser = (id) => {
-    fetch(`http://localhost:8080/api/users/premium/${id}`,{
+    fetch(`https://back-endapi-products-production.up.railway.app/api/users/premium/${id}`,{
         method: "PUT",
         headers:{
             "Content-Type": "aplication/json"
@@ -88,7 +88,7 @@ const changeRolUser = (id) => {
 }
 
 const getUser = () =>{
-    fetch("http://localhost:8080/api/users")
+    fetch("https://back-endapi-products-production.up.railway.app/api/users")
     .then( res => res.json())
     .then( data => {
         renderUsers(data.users)

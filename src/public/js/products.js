@@ -17,7 +17,7 @@ const renderProducts = (array)=>{
                         </div>
                         <div class="card-footer bg-transparent fs-4 text d-flex justify-content-between "> $ 
                             ${product.price}
-                            <a class="btn btn-success" href="http://localhost:8080/products/productview?id=${product._id}">Ver Más</a>
+                            <a class="btn btn-success" href="https://back-endapi-products-production.up.railway.app/products/productview?id=${product._id}">Ver Más</a>
                         </div>
                     `
         contProducts.appendChild(div)
@@ -33,7 +33,7 @@ const renderBotonPage = (data) => {
 //Funcion que nos pemite renderizar los elementos con paginate
 const fetchProducts = (page)=>{
     //Obtenemos los productos de la pagina pasada por parametro
-    fetch(`http://localhost:8080/api/products?page=${page}`)
+    fetch(`https://back-endapi-products-production.up.railway.app/api/products?page=${page}`)
     .then( response => response.json())
     .then( data => {
         products = data
@@ -44,7 +44,7 @@ const fetchProducts = (page)=>{
 }
 const fetchProductsOpts = (opt, value)=>{
     //Obtenemos los productos de la pagina pasada por parametro
-    fetch(`http://localhost:8080/api/products?${opt}=${value}`)
+    fetch(`https://back-endapi-products-production.up.railway.app/api/products?${opt}=${value}`)
     .then( response => response.json())
     .then( data => {
         products = data
