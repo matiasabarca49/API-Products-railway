@@ -23,6 +23,7 @@ const transporter = nodemailer.createTransport({
     port: 578,
     secure: true,
     auth:{
+        type: "OAuth2",
         user: process.env.GMAIL_CREDENTIAL_USER,
         pass: process.env.GMAIL_CREDENTIAL_TOKEN
     }
