@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const chai = require('chai')
 const supertest = require('supertest')
 const expect = chai.expect
-const requester = supertest('http://localhost:8080')
+const requester = supertest('https://back-endapi-products-production.up.railway.app')
 //Administracion DB
 mongoose.connect(`mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD_DB}
 @cluster-mongo-coder-tes.qh8sdrt.mongodb.net/ecommerce`)

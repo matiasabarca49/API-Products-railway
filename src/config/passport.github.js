@@ -12,7 +12,7 @@ passport.use('auth-github',
 new githubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/github/callback"
+    callbackURL: "https://back-endapi-products-production.up.railway.app/auth/github/callback"
 },
 async function(accessToken, refreshToken, profile, done){
     //Variable que obtendra el mail de user

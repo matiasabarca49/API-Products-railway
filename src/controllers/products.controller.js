@@ -25,8 +25,8 @@ const getProducts = async (req,res) =>{
             nextPage: products.nextPage,
             hasPrevPage: products.hasPrevPage,
             hasNextPage: products.hasNextPage,
-            prevLink:products.hasPrevPage?`http://localhost:8080/api/products?page=${products.prevPage} ` : null,
-            nextLink:products.hasNextPage?`http://localhost:8080/api/products?page=${products.nextPage} `: null,
+            prevLink:products.hasPrevPage?`https://back-endapi-products-production.up.railway.app/api/products?page=${products.prevPage} ` : null,
+            nextLink:products.hasNextPage?`https://back-endapi-products-production.up.railway.app/api/products?page=${products.nextPage} `: null,
             })
         : res.status(500).send({status: "Error"})
 }
