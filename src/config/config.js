@@ -20,6 +20,7 @@ dotenv.config({
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     port: 578,
+    secure: true,
     auth:{
         user: process.env.GMAIL_CREDENTIAL_USER,
         pass: process.env.GMAIL_CREDENTIAL_TOKEN
